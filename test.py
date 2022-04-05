@@ -1,4 +1,8 @@
 from cache_utils import *
+from redis import Redis
+from rq import Queue
+
+from test2 import *
 # import datetime
 # user = {"Name": "Pradeep", "Company": {"dd":"dddd"}, "Address": "Mumbai", "Location": "RCP"}
 # #write_dic_to_cache("abbass",user)
@@ -18,4 +22,8 @@ from cache_utils import *
 # print(a)
 
 
-print(get_dic_from_cache("options_index"))
+
+q = Queue(connection=Redis())
+
+for i in range(10):
+    print(q.enqueue(do_some))

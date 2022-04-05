@@ -1,6 +1,6 @@
 import datetime
-
 import jdatetime
+from bs4_utils import convert_to_soup
 week_day_convert = {0: "شنبه", 1: "یکشنبه", 2: "دوشنبه", 3 : "سه‌شنبه", 4 : "چهارشنبه", 5 : "پنجشنبه", 6 : "جمعه"}
 month_convert = {
     1:"فروردین",
@@ -55,3 +55,9 @@ def get_today():
 
 def get_proper_jalali_time(date):
     return "📅 "+get_day_name(date)+" "+get_day(date)+" ام "+ get_month_name(date) + " ماه "
+
+
+
+def get_new_csrf(text):
+    souped_text = convert_to_soup(text)
+    return souped_text.find("input", {"name": "csrfmiddlewaretoken"})["value"]
