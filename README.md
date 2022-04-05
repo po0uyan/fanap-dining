@@ -1,5 +1,5 @@
 # fanap-dining
-an implementation of fanap-dining telegram bot service for easy access for employees the main service is hosted under dining.fanap.ir
+an implementation of fanap-dining telegram bot service for easy access for employees the main service is hosted on [dining.fanap.ir](dining.fanap.ir)
 
 this project uses python-rq so you need to implement a scaled rq service for this project to work.
 daemonize your service using systemd, supervisord or any other similar service.
